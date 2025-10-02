@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLOSSOM GATES ACADEMY</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--custom css-->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+<body>
+
+ <!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top" style="background: linear-gradient(90deg, grey, #6363F8);">
+  <div class="container">
+    
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png" 
+           alt="logo" style="height:50px; margin-right:10px;">
+      
+      <!-- Brand text stacked -->
+      <div class="d-flex flex-column">
+        <span class="fw-bold text-danger" style="font-family: 'Lobster Two', cursive; font-size: 1.1rem;">
+          BLOSSOM GATES ACADEMY
+        </span>
+        <small class="text-light fst-italic" style="font-size: 0.8rem;">
+          MOTTO: Excellence Through Learning
+        </small>
+      </div>
+    </a>
+
+    <!-- Toggler (mobile menu button) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index1.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index2.html">Classes</a></li>
+        <li class="nav-item"><a class="nav-link" href="index3.html">Contact Us</a></li>
+      </ul>
+
+      <!-- Button -->
+      <div class="text-center text-lg-start">
+        <a href="index4.html" class="btn btn-orange ms-lg-3 mt-2 mt-lg-0">Join Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329933/blossom1_nzmuov.jpg" class="d-block w-100" alt="Kids Learning" style="object-fit: cover; height: 100vh;">
+
+      <div class="carousel-caption text-start">
+        <h1 class="display-4 fw-bold">Make A Brighter Future For Your Child</h1>
+        <p class="lead">Give your child the tools to thrive and grow in a supportive environment.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="index1.html" class="btn btn-orange">Learn More</a>
+          <a href="index2.html" class="btn btn-dark">Our Classes</a>
+        </div>
+      </div>
+
+      <!-- Scallop -->
+      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+      </svg>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329932/blossm2_evh4ml.webp" class="d-block w-100" alt="Kids Playing" style="object-fit: cover; height: 100vh;">
+
+      <div class="carousel-caption text-start">
+        <h1 class="display-4 fw-bold">Fun Learning Experience</h1>
+        <p class="lead">We combine play and education to inspire creativity.</p>
+        <a href="index4.html" class="btn btn-orange">Enroll Now</a>
+      </div>
+
+      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+      </svg>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759330177/blossm_3_nxhm2m.webp" class="d-block w-100" alt="Classroom" style="object-fit: cover; height: 100vh;">
+
+      <div class="carousel-caption text-start">
+        <h1 class="display-4 fw-bold">ICT</h1>
+        <p class="lead">Our programs nurture creativity and confidence in every child.</p>
+      </div>
+
+      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+ <!-- School Facilities Section -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    
+    <!-- Heading -->
+    <h2 class="fw-bold mb-3">School Facilities</h2>
+    <p class="mb-5">
+      Our school is equipped with modern facilities to support learning, creativity, and overall student growth. 
+      From well-resourced classrooms and science labs to sports fields and libraries, and a well-equipped ICT Center, 
+      every space is designed to provide a safe and inspiring environment for students to thrive.
+    </p>
+
+    <!-- Facilities Row -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- School Bus -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="facility-card text-center p-4 h-100">
+          <div class="facility-icon bg-light-red">
+            <i class="fas fa-bus fa-2x"></i>
+          </div>
+          <h5 class="mt-3 text-danger fw-bold">School Bus</h5>
+          <p>Safe and reliable transport service daily.</p>
+        </div>
+      </div>
+
+      <!-- Playground -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="facility-card text-center p-4 h-100 bg-green text-white">
+          <div class="facility-icon bg-green-dark">
+            <i class="fas fa-futbol fa-2x"></i>
+          </div>
+          <h5 class="mt-3 fw-bold">Playground</h5>
+          <p>Spacious, safe, and supervised outdoor play area.</p>
+        </div>
+      </div>
+
+      <!-- ICT Center -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="facility-card text-center p-4 h-100 bg-light-yellow">
+          <div class="facility-icon bg-yellow">
+            <i class="fas fa-laptop fa-2x"></i>
+          </div>
+          <h5 class="mt-3 text-warning fw-bold">ICT CENTER</h5>
+          <p>Equipped with modern computers and internet access.</p>
+        </div>
+      </div>
+
+      <!-- Positive Learning -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="facility-card text-center p-4 h-100 bg-light-blue">
+          <div class="facility-icon bg-blue">
+            <i class="fas fa-chalkboard-teacher fa-2x"></i>
+          </div>
+          <h5 class="mt-3 text-info fw-bold">Positive Learning</h5>
+          <p>Supportive and engaging environment for growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- About & Cultural Activities Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Column -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="fw-bold mb-3" style="font-family: 'Pacifico', cursive; color:#002b36;">
+          Learn More About Our Work and <br> Cultural Activities
+        </h2>
+        <p>
+          Our school is committed to fostering holistic development through a range of 
+          academic and cultural programs. We provide an environment where students can grow 
+          intellectually, socially, and emotionally.
+        </p>
+        <p>
+          We organize cultural activities, clubs, and events that encourage creativity, teamwork, 
+          and leadership. These initiatives help students appreciate their heritage, develop new skills, 
+          and cultivate a lifelong love for learning.
+        </p>
+        <a href="#" class="btn btn-danger rounded-pill px-4 py-2">Read More</a>
+
+        <!-- Author Info -->
+        <div class="d-flex align-items-center mt-4">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg" 
+               alt="CEO" 
+               class="rounded-circle me-3" 
+               width="50" height="50">
+          <div>
+            <h6 class="mb-0 text-danger fw-bold">Victoria Agada</h6>
+            <small class="text-muted">CEO & Founder</small>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column (Circle Images) -->
+      <div class="col-lg-6 text-center position-relative">
+        <!-- Big Circle -->
+        <div class="circle-img big-circle">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759333244/blossom6_nk3jwg.jpg" 
+               class="img-fluid rounded-circle shadow" alt="Cultural Activities">
+        </div>
+        <!-- Small Circle Left -->
+        <div class="circle-img small-circle left-circle">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759333228/blossom4_agk6ut.webp" 
+               class="img-fluid rounded-circle shadow" alt="Student Activity">
+        </div>
+        <!-- Small Circle Right -->
+        <div class="circle-img small-circle right-circle">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759333210/blossom_5_ordem7.webp" 
+               class="img-fluid rounded-circle shadow" alt="Student Group">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Become a Teacher Section -->
+<section class="py-5 bg-peach">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Column: Image -->
+      <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+        <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334621/blossom7_vc6tua.jpg" 
+             alt="Teacher" class="img-fluid rounded-3 shadow teacher-img">
+      </div>
+
+      <!-- Right Column: Content -->
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3" style="font-family: 'Pacifico', cursive; color:#002b36;">
+          Become a Teacher at Blossom Gates Academy
+        </h2>
+        <p>
+          At Blossom Gates Academy, we believe that great teachers create great futures. 
+          We are looking for passionate, dedicated, and innovative educators who are committed 
+          to shaping the minds and lives of young learners.
+        </p>
+        <ul class="mb-4 list-unstyled">
+          <li>✔️ Strong knowledge in your subject area</li>
+          <li>✔️ Excellent communication and leadership skills</li>
+          <li>✔️ Ability to inspire creativity and critical thinking</li>
+          <li>✔️ Commitment to fostering a supportive learning environment</li>
+        </ul>
+        <a href="index4.html" class="btn btn-danger rounded-pill px-4 py-2 shadow-sm">
+          Get Started
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Appointment Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Column: Appointment Card -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="card shadow-lg p-4 border-0 rounded-4">
+          <h2 class="fw-bold mb-3" style="font-family: 'Pacifico', cursive; color:#002b36;">
+            Make Appointment
+          </h2>
+          <!-- Appointment Form -->
+          <form>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Guardian Name</label>
+              <input type="text" class="form-control form-control-lg" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Child’s Name</label>
+              <input type="text" class="form-control form-control-lg" placeholder="Enter your child's name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Child’s Age</label>
+              <input type="number" class="form-control form-control-lg" placeholder="Enter your child's age" min="1" max="18" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Message</label>
+              <textarea class="form-control form-control-lg" rows="3" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger rounded-pill px-4 py-2 shadow-sm">
+              Book Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Right Column: Image -->
+      <div class="col-lg-6 text-center">
+        <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759335309/blossm8_q2g3mj.webp"
+             alt="Appointment" class="img-fluid rounded-3 shadow appointment-img">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Staff Section -->
+<section class="py-5">
+  <div class="container text-center">
+    
+    <!-- Section Heading -->
+    <h2 class="fw-bold mb-3" style="font-family: 'Pacifico', cursive; color:#002b36;">
+      Meet Our Popular Staff
+    </h2>
+    <p class="mb-5">
+      At Blossom Gates Academy, we are proud of our team of dedicated professionals.  
+      Our leadership ensures that every child receives the best in academics, guidance, and care.
+    </p>
+    
+    <!-- Staff Cards -->
+    <div class="row g-4">
+      
+      <!-- Director -->
+      <div class="col-md-4">
+        <div class="card staff-card border-0 shadow h-100 text-center p-3">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg"
+               alt="Director" class="img-fluid rounded-circle mx-auto mt-3" style="width:150px; height:150px; object-fit:cover;">
+          <div class="card-body">
+            <h5 class="fw-bold text-danger">Mr. John Smith</h5>
+            <p class="text-muted mb-1">School Director</p>
+            <small>
+              Providing leadership and vision to ensure academic excellence and discipline.
+            </small>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Head Teacher -->
+      <div class="col-md-4">
+        <div class="card staff-card border-0 shadow h-100 text-center p-3">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg"
+               alt="Head Teacher" class="img-fluid rounded-circle mx-auto mt-3" style="width:150px; height:150px; object-fit:cover;">
+          <div class="card-body">
+            <h5 class="fw-bold text-danger">Mrs. Grace Brown</h5>
+            <p class="text-muted mb-1">Head Teacher</p>
+            <small>
+              Ensuring high teaching standards, student growth, and teacher development.
+            </small>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bursar -->
+      <div class="col-md-4">
+        <div class="card staff-card border-0 shadow h-100 text-center p-3">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg"
+               alt="Bursar" class="img-fluid rounded-circle mx-auto mt-3" style="width:150px; height:150px; object-fit:cover;">
+          <div class="card-body">
+            <h5 class="fw-bold text-danger">Mr. David Okoro</h5>
+            <p class="text-muted mb-1">School Bursar</p>
+            <small>
+              Managing finances with transparency and ensuring smooth school operations.
+            </small>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    
+    <!-- Heading -->
+    <h2 class="fw-bold mb-3" style="font-family: 'Pacifico', cursive; color:#002b36;">
+      What Our Clients Say
+    </h2>
+    <p class="mb-5">
+      Parents and guardians trust Blossom Gates Academy to provide a safe, caring, 
+      and high-quality education for their children. Here’s what they have to say:
+    </p>
+    
+    <!-- Testimonials -->
+    <div class="row g-4">
+      
+      <!-- Testimonial 1 -->
+      <div class="col-md-4">
+        <div class="testimonial-card shadow p-4 h-100 rounded-3 bg-white">
+          <i class="fas fa-quote-left text-danger fs-3 mb-3"></i>
+          <p class="fst-italic">
+            Blossom Gates Academy has truly transformed my child’s confidence.  
+            The teachers are dedicated and caring — I couldn’t have asked for a better school!
+          </p>
+          <h6 class="fw-bold mt-3 text-danger">— Mrs. Johnson</h6>
+        </div>
+      </div>
+      
+      <!-- Testimonial 2 -->
+      <div class="col-md-4">
+        <div class="testimonial-card shadow p-4 h-100 rounded-3 bg-white">
+          <i class="fas fa-quote-left text-danger fs-3 mb-3"></i>
+          <p class="fst-italic">
+            The cultural activities and academic balance here are amazing.  
+            My son looks forward to school every single day. Highly recommended!
+          </p>
+          <h6 class="fw-bold mt-3 text-danger">— Mr. Adewale</h6>
+        </div>
+      </div>
+      
+      <!-- Testimonial 3 -->
+      <div class="col-md-4">
+        <div class="testimonial-card shadow p-4 h-100 rounded-3 bg-white">
+          <i class="fas fa-quote-left text-danger fs-3 mb-3"></i>
+          <p class="fst-italic">
+            A wonderful environment where children feel safe, inspired, and motivated.  
+            The staff treat every child as family, and that makes a big difference.
+          </p>
+          <h6 class="fw-bold mt-3 text-danger">— Mrs. Bello</h6>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<footer class="bg-dark text-white pt-5">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Column 1: Get in Touch -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3 text-uppercase">Get in Touch</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i>8A Ehiemere street, Port Harcourt rd, Aba Abia State, Nigeria</p>
+        <p><i class="fas fa-phone-alt me-2"></i> +234 7035022550</p>
+        <p><i class="fas fa-envelope me-2"></i> info@blossomacademy.com</p>
+        <div class="mt-3">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3 text-uppercase">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none d-block mb-2">About Us</a></li>
+          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Classes</a></li>
+          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Admissions</a></li>
+          <li><a href="#" class="text-white text-decoration-none d-block">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Image Gallery -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3 text-uppercase">Gallery</h5>
+        <div class="row g-2">
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
+        </div>
+      </div>
+
+      <!-- Column 4: Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3 text-uppercase">Newsletter</h5>
+        <p>Subscribe to get the latest news, updates and events from Blossom Gates Academy.</p>
+        <form>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Your email" required>
+            <button class="btn btn-danger" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Divider Line -->
+    <hr class="border-light mt-4">
+
+    <!-- Copyright -->
+    <div class="text-center py-3 small">
+      <p class="mb-0">&copy; 2025 Blossom Gates Academy. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+/* Navbar Logo */
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+   /* Gradient Background for Navbar */
+.navbar {
+  background: linear-gradient(90deg, 
+    rgb(180, 180, 180) 0%,   /* light grey */
+    rgba(99, 99, 248, 0.95) 100%   /* your blue #6363F8 */
+  ) !important;
+}
+
+    /* Hero Section */
+    .hero-carousel {
+      position: relative;
+    }
+    .hero-carousel img {
+      width: 100%;
+      height: 85vh;
+      object-fit: cover;
+    }
+    .scallop-shape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+    }
+.carousel-caption {
+    bottom: 20%;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-caption h1 {
+      font-size: 1.8rem;
+    }
+    .carousel-caption p {
+      font-size: 1rem;
+    }
+    .carousel-caption {
+      bottom: 15%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-caption h1 {
+      font-size: 1.4rem;
+    }
+    .carousel-caption p {
+      font-size: 0.9rem;
+    }
+    .carousel-caption {
+      bottom: 10%;
+      padding: 0 15px;
+    }
+  }
+
+  .scallop-shape {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+  }
+    /* Hero Content */
+    .carousel-caption {
+      bottom: 20%;
+    }
+    .carousel-caption h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .carousel-caption p {
+      font-size: 1.2rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+    .btn-orange {
+      background: #ff5722;
+      color: #fff;
+      border-radius: 50px;
+      padding: 10px 20px;
+    }
+    .btn-dark {
+      border-radius: 50px;
+      padding: 10px 20px;
+    }
+
+    .facility-card {
+  border-radius: 20px; /* changed from circle for better readability */
+  background: #fff;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.facility-card:hover {
+  transform: scale(1.05); /* zoom out a little */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* add shadow */
+}
+
+
+  .facility-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -50px auto 20px;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  /* Colors */
+  .bg-light-red { background: #ffeaea; color: #e74c3c; }
+  .bg-green { background: #27ae60; }
+  .bg-green-dark { background: #1e8449; }
+  .bg-light-yellow { background: #fff7e6; }
+  .bg-yellow { background: #f39c12; }
+  .bg-light-blue { background: #e6f7ff; }
+  .bg-blue { background: #3498db; }
+
+
+ .circle-img {
+  position: absolute;
+}
+
+.big-circle {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.small-circle {
+  width: 120px;
+  height: 120px;
+}
+
+.left-circle {
+  top: 20%;
+  left: 10%;
+}
+
+.right-circle {
+  bottom: 20%;
+  right: 10%;
+}
+
+/* 📱 Mobile Responsive Fix */
+@media (max-width: 768px) {
+  .col-lg-6.text-center.position-relative {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* space between circles */
+    position: static;
+  }
+
+  .circle-img {
+    position: static;
+    transform: none;
+  }
+
+  .big-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .small-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+.bg-peach {
+  background-color: #535abd; /* soft peach */
+}
+
+.card {
+  border-radius: 15px;
+}
+.card input, 
+.card textarea {
+  border-radius: 10px;
+}
+.card button {
+  transition: transform 0.3s ease;
+}
+.card button:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  background-color: peachpuff;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+.testimonial-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+.testimonial-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.testimonial-card i {
+  opacity: 0.7;
+}
+
+footer a:hover {
+  color: #ffc107 !important; /* gold hover for links */
+}
+footer .form-control {
+  border-radius: 30px 0 0 30px;
+}
+footer .btn-danger {
+  border-radius: 0 30px 30px 0;
+}
+/* Rounded card */
+.card {
+  background-color: #fffdf9; /* soft off-white */
+}
+
+/* Form focus effect */
+.form-control:focus, 
+textarea:focus {
+  border-color: #dc3545; /* Bootstrap danger color */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Button hover */
+.btn-danger:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Responsive image spacing */
+@media (max-width: 768px) {
+  .appointment-img {
+    margin-top: 20px;
+  }
+}
