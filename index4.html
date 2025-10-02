@@ -3,329 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blossom Gates Academy - Contact Us</title>
+    <title>Blossom Gates Academy - Prospectus & Admission</title>
     <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--custom css-->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Roboto for general text, Lobster Two for logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-    
-        /* Custom class for the main background image effect */
-        .main-bg-image {
-            background-image: url('https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png'); 
-            background-size: cover;      
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            
-            /* Overlay for Readability */
-            background-blend-mode: multiply;
-            background-color: rgba(0, 0, 0, 0.4); 
-        }
-
-        /* Enhances readability for white text over the background image */
-        .text-white-shadow {
-            color: white !important;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-        }
-
-        /* Styling for the main content card */
-        .contact-card {
-            background-color: rgba(255, 255, 255, 0.95); /* Semi-opaque white background for clarity */
-            border-radius: 1rem; /* Rounded corners */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Styling for the map placeholder/embed */
-        .map-container {
-            overflow: hidden;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        /* Base Website Styles */
+        .hero-carousel {
+            height: 80vh; /* Make carousel fit screen height */
             position: relative;
-            height: 0;
-            border-radius: 0.5rem;
         }
-        .map-container iframe {
-            left: 0;
-            top: 0;
+        .carousel-item img {
             height: 100%;
-            width: 100%;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: auto;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .scallop-shape {
             position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 10;
+        }
+        /* Custom Orange Button Style */
+        .btn-orange {
+            background-color: #ff6600; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-orange:hover {
+            background-color: #e65c00;
+            color: white;
+        }
+
+        /* --- PROSPECTUS/FORM SPECIFIC STYLES --- */
+        
+        /* Area that holds the form content */
+        .prospectus-area {
+            background-color: #f8f9fa; /* Light background for the form section */
+            padding: 60px 20px;
+        }
+
+        /* Container for the Prospectus content itself */
+        .prospectus-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        
+        /* Header for the Prospectus */
+        .prospectus-container header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #6363F8; /* Primary Blue */
+            margin-bottom: 30px;
+        }
+        .prospectus-container header .logo {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #6363F8;
+        }
+        .prospectus-container header h2 {
+            font-size: 1.8em;
+            color: #ff6600; /* Secondary Orange */
+            margin-top: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .section h3 {
+            color: #6363F8;
+            border-left: 5px solid #ff6600;
+            padding-left: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Form Layout */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1; 
+            min-width: 200px; 
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #444;
+        }
+        input[type="text"], input[type="email"], input[type="date"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        
+        /* Attachments and Passport Box */
+        .attachments li {
+            list-style: none;
+            margin-bottom: 10px;
+            padding-left: 0;
+        }
+        .passport-box {
+            border: 1px dashed #999;
+            width: 150px;
+            height: 180px;
+            text-align: center;
+            line-height: 180px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Fees Table Styling */
+        .fees {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .fees th, .fees td {
+            border: 1px solid #eee;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .fees thead th {
+            background-color: #6363F8;
+            color: white;
+            font-weight: 600;
+        }
+        .fees tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Print Button Line */
+        .submit-line {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-print {
+            background-color: #28a745; 
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+        }
+        .btn-print:hover {
+            background-color: #218838;
+        }
+
+        /* ------------------------------------------------ */
+        /* --- PRINT STYLES (Overrides for paper copy) --- */
+        /* ------------------------------------------------ */
+        @media print {
+            /* Hide web elements */
+            .navbar, .hero-carousel, footer, .map-section {
+                display: none !important;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            /* Reset prospectus container styles for full bleed print */
+            .prospectus-area, .prospectus-container {
+                background-color: white;
+                box-shadow: none;
+                padding: 0;
+                border: none;
+            }
+            
+            /* Hide non-printable items */
+            .no-print, .btn-print, .submit-line div, .prospectus-container footer {
+                display: none !important;
+            }
+
+            /* Ensure input fields have space for writing (dashed lines) */
+            input[type="text"], input[type="email"], input[type="date"], select, textarea {
+                border: none;
+                border-bottom: 1px dashed #333; 
+                padding: 0 0 5px 0;
+                margin-top: 3px;
+                height: auto;
+            }
+            
+            /* Remove background color from table rows for ink saving */
+            .fees thead th {
+                background-color: #eee !important;
+                color: #333 !important;
+            }
+            .fees tbody tr:nth-child(even) {
+                background-color: white !important;
+            }
+
+            /* Stack form rows for better paper usage */
+            .form-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .form-group {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg shadow-sm sticky-top" style="background: linear-gradient(90deg, grey, #6363F8);">
-  <div class="container">
-    
-    <!-- Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png" 
-           alt="logo" style="height:50px; margin-right:10px;">
-      
-      <!-- Brand text stacked -->
-      <div class="d-flex flex-column">
-        <span class="fw-bold text-danger" style="font-family: 'Lobster Two', cursive; font-size: 1.1rem;">
-          BLOSSOM GATES ACADEMY
-        </span>
-        <small class="text-light fst-italic" style="font-size: 0.8rem;">
-          MOTTO: Excellence Through Learning
-        </small>
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top" style="background: linear-gradient(90deg, #6c757d, #6363F8);">
+      <div class="container">
+        
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png" 
+                alt="logo" style="height:50px; margin-right:10px;">
+          <div class="d-flex flex-column">
+            <span class="fw-bold text-danger" style="font-family: 'Lobster Two', cursive; font-size: 1.1rem;">
+              BLOSSOM GATES ACADEMY
+            </span>
+            <small class="text-light fst-italic" style="font-size: 0.8rem;">
+              MOTTO: Excellence Through Learning
+            </small>
+          </div>
+        </a>
+
+        <!-- Toggler (mobile menu button) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto text-center">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index1.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="index2.html">Classes</a></li>
+            <li class="nav-item"><a class="nav-link" href="index3.html">Contact Us</a></li>
+          </ul>
+
+          <!-- Button -->
+          <div class="text-center text-lg-start">
+            <a href="index4.html" class="btn btn-orange ms-lg-3 mt-2 mt-lg-0">Admission</a>
+          </div>
+        </div>
       </div>
-    </a>
+    </nav>
 
-    <!-- Toggler (mobile menu button) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Hero Carousel -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+      <div class="carousel-inner">
 
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto text-center">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index1.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="index2.html">Classes</a></li>
-        <li class="nav-item"><a class="nav-link" href="index3.html">Contact Us</a></li>
-      </ul>
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329933/blossom1_nzmuov.jpg" class="d-block w-100" alt="Kids Learning">
+          <div class="carousel-caption text-start">
+            <h1 class="display-4 fw-bold">Make A Brighter Future For Your Child</h1>
+            <p class="lead">Give your child the tools to thrive and grow in a supportive environment.</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="index1.html" class="btn btn-orange">Learn More</a>
+              <a href="index2.html" class="btn btn-dark">Our Classes</a>
+            </div>
+          </div>
+          <!-- Scallop -->
+          <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+            <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+          </svg>
+        </div>
 
-      <!-- Button -->
-      <div class="text-center text-lg-start">
-        <a href="index4.html" class="btn btn-orange ms-lg-3 mt-2 mt-lg-0">Join Us</a>
-      </div>
-    </div>
-  </div>
-</nav>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329932/blossm2_evh4ml.webp" class="d-block w-100" alt="Kids Playing">
+          <div class="carousel-caption text-start">
+            <h1 class="display-4 fw-bold">Fun Learning Experience</h1>
+            <p class="lead">We combine play and education to inspire creativity.</p>
+            <a href="index4.html" class="btn btn-orange">Enroll Now</a>
+          </div>
+          <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+            <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+          </svg>
+        </div>
 
-<!-- Hero Carousel -->
-<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-  <div class="carousel-inner">
-
-    <!-- Slide 1 -->
-    <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329933/blossom1_nzmuov.jpg" class="d-block w-100" alt="Kids Learning" style="object-fit: cover; height: 100vh;">
-
-      <div class="carousel-caption text-start">
-        <h1 class="display-4 fw-bold">Make A Brighter Future For Your Child</h1>
-        <p class="lead">Give your child the tools to thrive and grow in a supportive environment.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="index1.html" class="btn btn-orange">Learn More</a>
-          <a href="index2.html" class="btn btn-dark">Our Classes</a>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759330177/blossm_3_nxhm2m.webp" class="d-block w-100" alt="Classroom">
+          <div class="carousel-caption text-start">
+            <h1 class="display-4 fw-bold">ICT</h1>
+            <p class="lead">Our programs nurture creativity and confidence in every child.</p>
+          </div>
+          <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
+            <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
+          </svg>
         </div>
       </div>
 
-      <!-- Scallop -->
-      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
-        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
-      </svg>
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
 
-    <!-- Slide 2 -->
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329932/blossm2_evh4ml.webp" class="d-block w-100" alt="Kids Playing" style="object-fit: cover; height: 100vh;">
-
-      <div class="carousel-caption text-start">
-        <h1 class="display-4 fw-bold">Fun Learning Experience</h1>
-        <p class="lead">We combine play and education to inspire creativity.</p>
-        <a href="index4.html" class="btn btn-orange">Enroll Now</a>
-      </div>
-
-      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
-        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
-      </svg>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759330177/blossm_3_nxhm2m.webp" class="d-block w-100" alt="Classroom" style="object-fit: cover; height: 100vh;">
-
-      <div class="carousel-caption text-start">
-        <h1 class="display-4 fw-bold">ICT</h1>
-        <p class="lead">Our programs nurture creativity and confidence in every child.</p>
-      </div>
-
-      <svg class="scallop-shape" viewBox="0 0 500 50" preserveAspectRatio="none">
-        <path d="M0,30 Q25,50 50,30 T100,30 T150,30 T200,30 T250,30 T300,30 T350,30 T400,30 T450,30 T500,30 V50 H0 Z" fill="white"></path>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-
-    <!-- MAIN CONTENT AREA WITH BACKGROUND IMAGE -->
-    <main class="main-bg-image py-5">
-        <div class="container">
-            <header class="text-center mb-5">
-                <h2 class="display-4 text-white-shadow">Get In Touch With Blossom Gates</h2>
-                <p class="lead text-white-shadow">We are eager to answer your questions regarding admissions, curriculum, or school events.</p>
+    <!-- PROSPECTUS AND ADMISSION FORM SECTION -->
+    <div class="prospectus-area">
+        <div class="prospectus-container">
+            <header>
+              <div class="logo">Blossom Gates Academy</div>
+              <div class="motto">Excellence through learning</div>
+              <h2>Prospectus & Admission Form</h2>
+              <div>8A Ehiemere Street, Portharcourt Road, Aba, Abia State</div>
             </header>
 
-            <!-- Contact Card with Form and Info -->
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="contact-card p-4 p-md-5">
-                        <div class="row">
-                            
-                            <!-- Contact Form (Left Side) -->
-                            <div class="col-md-7 mb-4 mb-md-0">
-                                <h3 class="mb-4 text-primary">Send Us a Message</h3>
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="subject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="subject">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="message" class="form-label">Your Inquiry</label>
-                                        <textarea class="form-control" id="message" rows="4" required></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100 py-2">Submit Inquiry</button>
-                                </form>
-                            </div>
-                            
-                            <!-- School Details (Right Side) -->
-                            <div class="col-md-5 border-start ps-md-5">
-                                <h3 class="mb-4 text-success">School Information</h3>
-                                
-                                <div class="mb-4">
-                                    <p class="fw-bold">Address:</p>
-                                    <p class="text-muted">
-                                        8A Ehiemere street,<br>
-                                        Port Harcourt rd, Aba Abia State, Nigeria
-                                    </p>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <p class="fw-bold">Admissions & General Enquiries:</p>
-                                    <p class="text-muted">
-                                        <a href="tel:+2348012345678" class="text-decoration-none text-muted">(+234) 7035022550</a><br>
-                                        <a href="tel:+2348098765432" class="text-decoration-none text-muted">(+234) 7039280073</a>
-                                    </p>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <p class="fw-bold">Email:</p>
-                                    <p class="text-muted">
-                                        <a href="mailto:info@blossomgates.edu.ng" class="text-decoration-none text-muted">info@blossomgates.edu.ng</a>
-                                    </p>
-                                </div>
-
-                                <!-- NEW: Career Opportunities Section -->
-                                <div class="mt-5 pt-3 border-top">
-                                    <h3 class="mb-3 text-danger">Join Us</h3>
-                                    <p class="fw-bold">Career Opportunities:</p>
-                                    <p class="text-muted small">
-                                        Interested in joining the Blossom Gates faculty or staff? We seek passionate educators who are committed to excellence.
-                                        <a href="mailto:careers@blossomgates.edu.ng" class="text-decoration-none text-danger fw-bold">Send your CV to our careers email.</a>
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Map Section -->
-            <section class="mt-5">
-                <h3 class="text-center mb-4 text-white-shadow">Find Our Location</h3>
-                <div class="map-container">
-                    <!-- Placeholder for an embedded Google Map. Map URL centered on Aba, Abia State -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d200721.28828987175!2d7.331298135832795!3d5.111831412034177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10679815e9e0495f%3A0x6b8204d49a622a2!2sAba%2C%20Abia!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+            <section class="section">
+              <h3>About the School</h3>
+              <p>Welcome to Blossom Gates Academy. We are committed to academic excellence, character formation and holistic development of learners.</p>
             </section>
 
+            <section class="section">
+              <h3>Admission Guidelines</h3>
+              <ul>
+                <li>Age & class placement decided from birth certificate and interview/test where applicable.</li>
+                <li>Required documents: Birth Certificate, Recent Passport Photograph, Last School Results (where applicable).</li>
+                <li>Complete this form and submit with attachments to the admissions office.</li>
+              </ul>
+            </section>
+
+            <section class="section">
+              <h3>Fees & Payment (NGN)</h3>
+              <table class="fees" aria-label="fees table">
+                <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>Tuition (termly)</td><td>₦25,000</td></tr>
+                  <tr><td>Uniform</td><td>₦20,000</td></tr>
+                  <tr><td>Exercise books</td><td>₦10,000</td></tr>
+                  <tr><td>Textbooks</td><td>₦30,000</td></tr>
+                  <tr><td>ICT</td><td>₦15,000</td></tr>
+                  <tr><td>PTA levy</td><td>₦1,500</td></tr>
+                  <tr><td>Toiletries</td><td>₦5,000</td></tr>
+                  <tr><td>Arts</td><td>₦10,000</td></tr>
+                  <tr><td>Lesson fee</td><td>₦3,000</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Payment methods:</strong> Cash, Bank Transfer, POS. Please pay to the school account and keep receipt.</p>
+            </section>
+
+            <section class="section">
+              <h3>Admission Form</h3>
+              <form>
+                <!-- STUDENT DETAILS -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Full Name of Student</label>
+                    <input type="text" name="student_name" placeholder="Surname, Firstname Middlename">
+                  </div>
+                  <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob">
+                  </div>
+                  <div class="form-group">
+                    <label>Gender</label>
+                    <select name="gender">
+                      <option value="">Select</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Class Applying For</label>
+                    <input type="text" name="class_applying" placeholder="e.g. Primary 1">
+                  </div>
+                  <div class="form-group">
+                    <label>Last School Attended</label>
+                    <input type="text" name="last_school">
+                  </div>
+                  <div class="form-group">
+                    <label>Class Completed</label>
+                    <input type="text" name="class_completed">
+                  </div>
+                </div>
+
+                <h4>Parent / Guardian Details</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="parent_name">
+                  </div>
+                  <div class="form-group">
+                    <label>Relationship</label>
+                    <input type="text" name="relationship">
+                  </div>
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" name="address">
+                  </div>
+                </div>
+
+                <!-- ATTACHMENTS -->
+                <h4>Attachments</h4>
+                <ul class="attachments">
+                  <li><label>Passport Photograph</label>
+                    <div class="passport-box">Attach 1 passport photo</div>
+                  </li>
+                  <li><label>Birth Certificate</label> (Bring original & submit copy)</li>
+                  <li><label>Last School Results</label> (Attach photocopy)</li>
+                </ul>
+
+                <!-- DECLARATION -->
+                <h4>Declaration</h4>
+                <p>I hereby declare that the information provided is true and correct to the best of my knowledge. I agree to abide by the rules and regulations of Blossom Gates Academy.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Parent/Guardian Signature</label>
+                    <input type="text" name="signature" placeholder="Sign here">
+                  </div>
+                  <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" name="sign_date">
+                  </div>
+                </div>
+
+                <div class="submit-line no-print">
+                  <a class="btn-print" href="#print" onclick="window.print();return false;">Print this Form</a>
+                  <div><small>You can also download the printable PDF using the link below.</small></div>
+                </div>
+              </form>
+            </section>
+
+            <section class="section">
+              <h3>Contact & Location</h3>
+              <p><strong>Address:</strong> 8A Ehiemere Street, Portharcourt Road, Aba, Abia State</p>
+              <p><strong>Admissions Office:</strong> +234-703-502-2550 (Contact Number)</p>
+            </section>
         </div>
-    </main>
+    </div>
+    <!-- END PROSPECTUS AND ADMISSION FORM SECTION -->
 
     
-<footer class="bg-dark text-white pt-5">
-  <div class="container">
-    <div class="row gy-4">
-      
-      <!-- Column 1: Get in Touch -->
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold mb-3 text-uppercase">Get in Touch</h5>
-        <p><i class="fas fa-map-marker-alt me-2"></i>8A Ehiemere street, Port Harcourt rd, Aba Abia State, Nigeria</p>
-        <p><i class="fas fa-phone-alt me-2"></i> +234 7035022550</p>
-        <p><i class="fas fa-envelope me-2"></i> info@blossomacademy.com</p>
-        <div class="mt-3">
-          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold mb-3 text-uppercase">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none d-block mb-2">About Us</a></li>
-          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Classes</a></li>
-          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Admissions</a></li>
-          <li><a href="#" class="text-white text-decoration-none d-block">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Image Gallery -->
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold mb-3 text-uppercase">Gallery</h5>
-        <div class="row g-2">
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-          <div class="col-4"><img src="https://via.placeholder.com/80" class="img-fluid rounded" alt=""></div>
-        </div>
-      </div>
-
-      <!-- Column 4: Newsletter -->
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold mb-3 text-uppercase">Newsletter</h5>
-        <p>Subscribe to get the latest news, updates and events from Blossom Gates Academy.</p>
-        <form>
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Your email" required>
-            <button class="btn btn-danger" type="submit">Subscribe</button>
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white pt-5">
+      <div class="container">
+        <div class="row gy-4">
+          
+          <!-- Column 1: Get in Touch -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3 text-uppercase">Get in Touch</h5>
+            <p><i class="fas fa-map-marker-alt me-2"></i>8A Ehiemere street, Port Harcourt rd, Aba Abia State, Nigeria</p>
+            <p><i class="fas fa-phone-alt me-2"></i> +234 7035022550</p>
+            <p><i class="fas fa-envelope me-2"></i> info@blossomacademy.com</p>
+            <div class="mt-3">
+              <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
-        </form>
+
+          <!-- Column 2: Quick Links -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3 text-uppercase">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none d-block mb-2">Home</a></li>
+              <li><a href="#" class="text-white text-decoration-none d-block mb-2">About Us</a></li>
+              <li><a href="#" class="text-white text-decoration-none d-block mb-2">Classes</a></li>
+              <li><a href="#" class="text-white text-decoration-none d-block mb-2">Admissions</a></li>
+              <li><a href="#" class="text-white text-decoration-none d-block">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Image Gallery (Placeholders Updated) -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3 text-uppercase">Gallery</h5>
+            <div class="row g-2">
+              <div class="col-4"><img src="https://placehold.co/80x80/6363F8/ffffff?text=Img1" class="img-fluid rounded" alt="School Gallery Image 1"></div>
+              <div class="col-4"><img src="https://placehold.co/80x80/ff6600/ffffff?text=Img2" class="img-fluid rounded" alt="School Gallery Image 2"></div>
+              <div class="col-4"><img src="https://placehold.co/80x80/6363F8/ffffff?text=Img3" class="img-fluid rounded" alt="School Gallery Image 3"></div>
+              <div class="col-4"><img src="https://placehold.co/80x80/ff6600/ffffff?text=Img4" class="img-fluid rounded" alt="School Gallery Image 4"></div>
+              <div class="col-4"><img src="https://placehold.co/80x80/6363F8/ffffff?text=Img5" class="img-fluid rounded" alt="School Gallery Image 5"></div>
+              <div class="col-4"><img src="https://placehold.co/80x80/ff6600/ffffff?text=Img6" class="img-fluid rounded" alt="School Gallery Image 6"></div>
+            </div>
+          </div>
+
+          <!-- Column 4: Newsletter -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-3 text-uppercase">Newsletter</h5>
+            <p>Subscribe to get the latest news, updates and events from Blossom Gates Academy.</p>
+            <form>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Your email" required>
+                <button class="btn btn-orange" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Divider Line -->
+        <hr class="border-light mt-4">
+
+        <!-- Copyright -->
+        <div class="text-center py-3 small">
+          <p class="mb-0">&copy; 2025 VICKIE BROWN. All Rights Reserved.</p>
+        </div>
       </div>
+    </footer>
+    <!-- END FOOTER -->
 
-    </div>
-
-    <!-- Divider Line -->
-    <hr class="border-light mt-4">
-
-    <!-- Copyright -->
-    <div class="text-center py-3 small">
-      <p class="mb-0">&copy; 2025 VICKIE BROWN. All Rights Reserved.</p>
-    </div>
-  </div>
-</footer>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    </body>
-    </html>
+</body>
+</html>
