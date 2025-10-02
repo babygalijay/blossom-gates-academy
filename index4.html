@@ -7,8 +7,8 @@
     
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Roboto for general text, Lobster Two for logo -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter for general text, Lobster Two for logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lobster+Two:wght=700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -31,9 +31,17 @@
 
         /* Hero Carousel Styles */
         .hero-carousel {
-            height: 80vh;
+            height: 80vh; /* Default height for large screens */
             position: relative;
         }
+        
+        /* FIX: Reduce hero height on smaller screens to prevent text cutoff */
+        @media (max-width: 1023px) {
+            .hero-carousel {
+                height: 60vh; /* Reduced height on mobile/tablet screens */
+            }
+        }
+
         .carousel-item-img {
             height: 100%;
             object-fit: cover;
@@ -120,10 +128,16 @@
         /* ------------------------------------------------ */
         @media print {
             /* Hide web elements and remove top padding added for fixed nav */
-            .navbar, .hero-carousel, footer, .no-print, main.pt-24 {
+            .navbar, .hero-carousel, footer, .no-print { 
                 display: none !important;
-                padding-top: 0 !important;
             }
+
+            /* Reset main wrapper padding/margin to prevent large white space at the top */
+            main {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+            
             body { background-color: white !important; }
 
             /* Reset prospectus container styles for full bleed print */
@@ -168,10 +182,20 @@
             .form-group {
                 min-width: 100% !important;
             }
+            
+            /* Ensure placeholders don't print */
+            ::placeholder {
+                color: transparent !important;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Submission Feedback Message Box -->
+    <div id="submission-message" class="hidden fixed top-24 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl shadow-2xl z-50 transition duration-300 transform translate-x-0" role="alert">
+        <!-- Message will be injected by JavaScript -->
+    </div>
 
     <!-- Navbar - Fixed to the top and responsive -->
     <nav class="navbar fixed top-0 left-0 w-full z-50 shadow-lg p-4" 
@@ -181,6 +205,7 @@
             <!-- Brand -->
             <a class="flex items-center no-underline" href="index.html">
                 <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/48x48/6363F8/ffffff?text=BGA';"
                     alt="Blossom Gates Academy logo" class="h-12 mr-3 rounded-full border-2 border-white shadow-lg">
                 <div class="flex flex-col">
                     <span class="logo-font text-orange-400 font-bold text-2xl leading-none">
@@ -220,6 +245,7 @@
         <div id="heroCarousel" class="hero-carousel relative">
             <div class="hero-carousel-item relative w-full overflow-hidden">
                 <img src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329933/blossom1_nzmuov.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/1200x500/6c757d/ffffff?text=Blossom+Gates+Academy';"
                     class="carousel-item-img w-full" alt="Children happily learning in a bright classroom">
                 <div class="carousel-caption absolute inset-0 flex flex-col justify-center items-start p-8 md:p-16">
                     <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Make A Brighter Future For Your Child</h1>
@@ -290,40 +316,41 @@
 
                 <section class="section">
                     <h3 class="text-xl font-bold mb-4">Admission Form</h3>
-                    <form onsubmit="return false;">
+                    <!-- Form now calls handleSubmission() on submit -->
+                    <form onsubmit="return handleSubmission();">
                         <!-- STUDENT DETAILS -->
                         <h4 class="text-lg font-bold mt-6 mb-3 text-gray-800 border-b pb-1">Student Details</h4>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Full Name of Student</label>
-                                <input type="text" name="student_name" placeholder="Surname, Firstname Middlename" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="student_name" class="block font-semibold mb-1">Full Name of Student</label>
+                                <input type="text" id="student_name" name="student_name" placeholder="Surname, Firstname Middlename" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Date of Birth</label>
-                                <input type="date" name="dob" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="dob" class="block font-semibold mb-1">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Gender</label>
-                                <select name="gender" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="gender" class="block font-semibold mb-1">Gender</label>
+                                <select id="gender" name="gender" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                                     <option value="">Select</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-row mt-4">
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Class Applying For</label>
-                                <input type="text" name="class_applying" placeholder="e.g. Primary 1 or Nursery 2" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="class_applying" class="block font-semibold mb-1">Class Applying For</label>
+                                <input type="text" id="class_applying" name="class_applying" placeholder="e.g. Primary 1 or Nursery 2" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Last School Attended (If any)</label>
-                                <input type="text" name="last_school" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="last_school" class="block font-semibold mb-1">Last School Attended (If any)</label>
+                                <input type="text" id="last_school" name="last_school" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Class Completed</label>
-                                <input type="text" name="class_completed" placeholder="e.g. Nursery 3" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="class_completed" class="block font-semibold mb-1">Class Completed</label>
+                                <input type="text" id="class_completed" name="class_completed" placeholder="e.g. Nursery 3" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
                             </div>
                         </div>
 
@@ -331,27 +358,27 @@
                         <h4 class="text-lg font-bold mt-8 mb-3 text-gray-800 border-b pb-1">Parent / Guardian Details</h4>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Full Name</label>
-                                <input type="text" name="parent_name" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="parent_name" class="block font-semibold mb-1">Full Name</label>
+                                <input type="text" id="parent_name" name="parent_name" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Relationship to Student</label>
-                                <input type="text" name="relationship" placeholder="Father, Mother, Uncle, etc." class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="relationship" class="block font-semibold mb-1">Relationship to Student</label>
+                                <input type="text" id="relationship" name="relationship" placeholder="Father, Mother, Uncle, etc." class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Phone Number</label>
-                                <input type="text" name="phone" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="phone" class="block font-semibold mb-1">Phone Number</label>
+                                <input type="text" id="phone" name="phone" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                         </div>
 
                         <div class="form-row mt-4">
                             <div class="form-group flex-grow">
-                                <label class="block font-semibold mb-1">Email</label>
-                                <input type="email" name="email" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="email" class="block font-semibold mb-1">Email</label>
+                                <input type="email" id="email" name="email" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
                             </div>
                             <div class="form-group w-full min-w-0 flex-grow-0 basis-full">
-                                <label class="block font-semibold mb-1">Residential Address</label>
-                                <input type="text" name="address" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="address" class="block font-semibold mb-1">Residential Address</label>
+                                <input type="text" id="address" name="address" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                         </div>
 
@@ -380,16 +407,16 @@
 
                         <div class="form-row mt-6">
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Parent/Guardian Full Name (Print)</label>
-                                <input type="text" name="signature_print_name" placeholder="Print Full Name" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="signature_print_name" class="block font-semibold mb-1">Parent/Guardian Full Name (Print)</label>
+                                <input type="text" id="signature_print_name" name="signature_print_name" placeholder="Print Full Name" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Parent/Guardian Signature</label>
-                                <input type="text" name="signature" placeholder="Sign here (For Office Use on Printout)" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="signature" class="block font-semibold mb-1">Parent/Guardian Signature</label>
+                                <input type="text" id="signature" name="signature" placeholder="Sign here (For Office Use on Printout)" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
                             </div>
                             <div class="form-group">
-                                <label class="block font-semibold mb-1">Date</label>
-                                <input type="date" name="sign_date" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150">
+                                <label for="sign_date" class="block font-semibold mb-1">Date</label>
+                                <input type="date" id="sign_date" name="sign_date" class="web-input w-full p-2 border border-gray-300 rounded-md transition duration-150" required>
                             </div>
                         </div>
 
@@ -413,11 +440,17 @@
                         </div>
 
 
-                        <div class="submit-line text-center mt-8 no-print">
-                            <button type="button" class="btn-print bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105">
-                                <i class="fas fa-print mr-2"></i> Print this Form
+                        <!-- ACTION BUTTONS -->
+                        <div class="submit-line text-center mt-8 no-print flex flex-wrap justify-center gap-4">
+                            <!-- Print Button -->
+                            <button type="button" onclick="window.print()" class="btn-print bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105">
+                                <i class="fas fa-print mr-2"></i> Print for Manual Submission
                             </button>
-                            <div class="mt-3 text-sm text-gray-500"><small>Please use the print button to generate a clean, printable copy for submission.</small></div>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-submit bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105">
+                                <i class="fas fa-paper-plane mr-2"></i> Submit Application Online
+                            </button>
+                            <div class="mt-3 text-sm text-gray-500 w-full"><small>Note: Use the print button for a paper copy, or the submit button for simulated online application.</small></div>
                         </div>
                     </form>
                 </section>
@@ -480,7 +513,7 @@
                 <div>
                     <h5 class="font-bold mb-4 uppercase tracking-wider text-lg border-b border-orange-400 pb-2">Newsletter</h5>
                     <p class="mb-3 text-gray-400">Subscribe to get the latest news, updates and events from Blossom Gates Academy.</p>
-                    <form>
+                    <form onsubmit="return false;">
                         <div class="flex">
                             <input type="email" class="flex-1 p-3 rounded-l-xl text-gray-900 focus:outline-none" placeholder="Your email" required>
                             <button class="bg-orange-600 text-white font-semibold px-4 rounded-r-xl hover:bg-orange-700 transition duration-300" type="submit">
@@ -500,5 +533,53 @@
     </footer>
     <!-- END FOOTER -->
 
+    <script>
+        /**
+         * Function to handle simulated form submission.
+         * In a real application, this would send data to a backend API.
+         */
+        function handleSubmission() {
+            const form = document.querySelector('#admission-form form');
+            const messageBox = document.getElementById('submission-message');
+            
+            // Check if form is valid (browser built-in validation for 'required' fields)
+            if (!form.checkValidity()) {
+                // If invalid, the browser handles showing validation messages.
+                messageBox.classList.remove('bg-green-100', 'border-green-400', 'text-green-700');
+                messageBox.classList.add('bg-red-100', 'border-red-400', 'text-red-700');
+                messageBox.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i> Please fill out all required fields marked with an asterisk.';
+                messageBox.classList.remove('hidden', 'translate-x-full');
+                messageBox.classList.add('translate-x-0');
+                
+                setTimeout(() => {
+                    messageBox.classList.add('hidden', 'translate-x-full');
+                }, 5000);
+                return false; 
+            }
+
+            // Simulate submission success
+            messageBox.classList.remove('bg-red-100', 'border-red-400', 'text-red-700', 'translate-x-full');
+            messageBox.classList.add('bg-green-100', 'border-green-400', 'text-green-700');
+            messageBox.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Application simulated successfully! We will contact you soon.';
+            
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('translate-x-0');
+
+            // Hide message after 5 seconds and reset form
+            setTimeout(() => {
+                messageBox.classList.add('hidden', 'translate-x-full');
+                form.reset(); // Clear the form fields after success
+            }, 5000);
+
+            // Prevent actual form submission in the sandbox environment
+            return false;
+        }
+
+        // Add event listener for the print button (though already done with onclick in HTML for robustness)
+        document.querySelector('.btn-print')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
 </body>
 </html>
