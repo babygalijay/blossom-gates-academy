@@ -11,6 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lobster+Two:wght=700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dkoeutxie/image/upload/v1759329481/BLOSSOM_yye8d2.png">
+    <script>
+        // Function to handle form submission
+        function handleSubmission() {
+            // Show a success message (in a real app, you'd send data to a server)
+            const messageBox = document.getElementById('submission-message');
+            messageBox.innerHTML = '<strong class="font-bold">Success!</strong> Your application has been submitted. We will contact you soon.';
+            messageBox.classList.remove('hidden');
+            // Hide the message after 5 seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+            return false; // Prevent actual form submission for demo purposes
+        }
+    </script>
 
     <style>
         /* Define custom colors and fonts using custom properties for easier Tailwind styling */
@@ -225,7 +240,7 @@
                 <a class="text-white hover:text-orange-300 transition duration-150 font-medium" href="index3.html">Contact Us</a>
 
                 <!-- Button -->
-                <a href="#admission-form" class="bg-orange-600 text-white font-semibold py-2 px-4 rounded-xl shadow-xl hover:bg-orange-700 transition duration-300 transform hover:scale-105">
+                <a href="Admission" class="bg-orange-600 text-white font-semibold py-2 px-4 rounded-xl shadow-xl hover:bg-orange-700 transition duration-300 transform hover:scale-105">
                     Admission
                 </a>
             </div>
